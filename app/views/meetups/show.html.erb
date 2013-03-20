@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start at:</b>
+  <%= @meetup.start_at %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @meetup.location %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @meetup.description %>
+</p>
+
+<%= render @meetup.responses %>
+
+<%= form_tag respond_meetup_path(@meetup) do %>
+<%= text_area_tag :comment %>
+<%= submit_tag 'Yes' %>
+<%= submit_tag 'No' %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_meetup_path(@meetup) %> |
+<%= link_to 'Back', meetups_path %>

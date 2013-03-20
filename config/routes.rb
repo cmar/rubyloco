@@ -1,8 +1,14 @@
 Rubyloco::Application.routes.draw do
 
+  resources :meetups do
+    member do
+      post 'respond'
+    end
+  end
+
   match 'auth/:provider/callback', to: 'sessions#create'
 
-  root :to => 'welcome#index'
+  root :to => 'meetups#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
